@@ -1,3 +1,4 @@
 # LearningPython
-some simple python projects ^-^
-just for fun~
+Some simple Python projects.  
+For a lovely girl.  
+

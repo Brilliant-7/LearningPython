@@ -28,14 +28,16 @@ class Ship():
 
     def update(self):
         '''根据移动标志调整飞船位置'''
-        if (self.moving_right) and (self.rect.right < self.screen_rect.right):   #右
+        if (self.moving_right) and (self.rect.right <
+                                    self.screen_rect.right):  #右
             self.center_x += self.ai_settings.ship_speed_factor
-        if (self.moving_left) and (self.rect.left > 0):                          #左
+        if (self.moving_left) and (self.rect.left > 0):  #左
             self.center_x -= self.ai_settings.ship_speed_factor
-        if (self.moving_up) and (self.rect.top > 0):                             #上
+        if (self.moving_up) and (self.rect.top > 0):  #上
             self.center_y -= self.ai_settings.ship_speed_factor
-        if (self.moving_down) and (self.rect.bottom < self.screen_rect.height):  #下
-            self.center_y += self.ai_settings.ship_speed_factor    
+        if (self.moving_down) and (self.rect.bottom <
+                                   self.screen_rect.height):  #下
+            self.center_y += self.ai_settings.ship_speed_factor
 
         # 根据self.center更新rect对象
         self.rect.centerx = self.center_x
@@ -44,3 +46,8 @@ class Ship():
     def blitme(self):
         """在指定位置绘制飞船"""
         self.screen.blit(self.image, self.rect)
+
+    def center_ship(self):
+        '''让飞船在屏幕上居中显示'''
+        self.center_x = self.screen_rect.centerx
+        self.center_y = self.screen_rect.bottom - self.rect.height / 2
